@@ -1,12 +1,13 @@
 import React from "react";
 import Post from "./Post";
-
-const category = 'Facebook';
+import Header from "./Header";
 
 function App() {
     return (
         <>
-            <h1>Jstack Blog</h1>
+            <Header title="JStack's Blog">
+                <h4>Week posts</h4>
+            </Header>
             <hr />
 
             <Post
@@ -15,7 +16,7 @@ function App() {
                     subtitle: "Subtitle from article 1"
                 }}
             />
-
+    
             <Post
                 post={{
                     title: "Title from article 2",
