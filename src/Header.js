@@ -1,17 +1,22 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import PropTypes from 'prop-types';
 import Button from "./Button";
+import styles from'./Header.scss'
 
 import { ThemeContext } from "./App";
 
 export default function Header({ title, children }) {
-    const {onToogleTheme} = useContext(ThemeContext);
+    const { onToogleTheme } = useContext(ThemeContext);
     return (
-        <>
-        <Button onClick={onToogleTheme}>Toogle Theme</Button>
-            <h1>{title}</h1>
+        <div>
+            <h1 className={styles.title}>{title}</h1>
+
+            <Button onClick={onToogleTheme}>
+                Toogle Theme
+            </Button>
+
             {children}
-        </>
+        </div>
     )
 }
 
