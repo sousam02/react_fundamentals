@@ -2,18 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import PostHeader from "./PostHeader";
 import styles from "./Post.scss"
-import { Subtitle } from "./styles";
+import { Subtitle, Container } from "./styles";
 
 export default function Post(props) {
     return (
         <>
-            <article
-                className={
-                    props.post.removed ?
-                    styles.removedPost :
-                    styles.post
-                }
-            >
+            <Container removed={props.post.removed}>
                 <PostHeader
                     onRemove={props.onRemove}
                     post={{
@@ -22,15 +16,15 @@ export default function Post(props) {
                         read: props.post.read
                     }}
                 />
-                <Subtitle>{props.post.subtitle}</Subtitle> 
-            </article>
+                <Subtitle>{props.post.subtitle}</Subtitle>
+            </Container>
         </>
     )
 }
 
 Post.propTypes = {
     onRemove: PropTypes.func.isRequired,
-    post:  PropTypes.shape({
+    post: PropTypes.shape({
         id: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
         subtitle: PropTypes.string.isRequired,
