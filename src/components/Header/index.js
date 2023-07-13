@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Button from "../Button";
 import Title from '../Title';
 
-import { ThemeContext } from "../App";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function Header({ title, children }) {
     const { onToogleTheme } = useContext(ThemeContext);

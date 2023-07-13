@@ -2,13 +2,10 @@ import React, { useState, createContext } from "react";
 import Post from "../Post";
 import Header from "../Header";
 import Title from "./styles";
-export const ThemeContext = createContext();
+import { ThemeProvider } from "../../contexts/ThemeContext";
 
 
 function App() {
-
-
-    const [theme, setTheme] = useState('dark');
 
     const [posts, setPosts] = useState([
         {
@@ -34,10 +31,7 @@ function App() {
         }
     ]);
 
-    function handleToogleTheme() {
-        setTheme((prevState) => prevState === 'dark' ? 'light' : 'dark'
-        );
-    }
+    
 
     function handlePost() {
         setPosts((prevState) => [
@@ -65,10 +59,7 @@ function App() {
     }
 
     return (
-        <ThemeContext.Provider value={{
-            theme,
-            onToogleTheme: handleToogleTheme
-        }}>
+        <ThemeProvider>
             <Header title="JStack's Blog">
                 <Title as="h4"> Week Posts </Title>
                 <button onClick={handlePost}>Atualizar</button>
@@ -84,7 +75,7 @@ function App() {
                     />
                 ))
             }
-        </ThemeContext.Provider>
+        </ThemeProvider>
     )
 }
 
